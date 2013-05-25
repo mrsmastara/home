@@ -5,9 +5,6 @@ import java.util.List;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
-import com.youtube.play.client.shared.Member;
-import com.youtube.play.client.shared.MemberService;
-import com.youtube.play.client.shared.New;
 import org.jboss.errai.bus.client.api.ErrorCallback;
 import org.jboss.errai.bus.client.api.Message;
 import org.jboss.errai.bus.client.api.RemoteCallback;
@@ -17,6 +14,9 @@ import org.jboss.errai.ioc.client.api.EntryPoint;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.youtube.play.client.shared.Member;
+import com.youtube.play.client.shared.MemberService;
+import com.youtube.play.client.shared.New;
 
 /**
  * Entry point for the Errai Kitchen Sink application. The {@code @EntryPoint}
@@ -41,7 +41,7 @@ public class KitchenSinkApp {
   @Inject
   private Caller<MemberService> memberService;
 
-  private YouTubePlay kitchenSinkUi;
+  private KitchenSink kitchenSinkUi;
 
   /**
    * Builds the UI and populates the member list by making an RPC call to the server.
@@ -56,7 +56,7 @@ public class KitchenSinkApp {
    */
   @AfterInitialization
   public void createUI() {
-    kitchenSinkUi = new YouTubePlay(memberService);
+    kitchenSinkUi = new KitchenSink(memberService);
     kitchenSinkUi.setTableStatusMessage("Fetching member list...");
 
     RootPanel.get("kitchensink").add(kitchenSinkUi);

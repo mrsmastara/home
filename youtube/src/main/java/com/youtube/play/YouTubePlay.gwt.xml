@@ -15,5 +15,6 @@
         class="com.youtube.play.client.local.KitchenSinkValidatorFactory">
         <when-type-is class="javax.validation.ValidatorFactory" />
     </replace-with>
+	<inherits name="com.smartgwt.SmartGwt"/>
 
 </module>
